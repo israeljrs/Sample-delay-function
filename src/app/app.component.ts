@@ -11,9 +11,8 @@ export class AppComponent {
 
   async btnOnClick() {
     console.log('Por favor aguarde 3s.');
-    await this.delay(2000).then(() => {
-      swal('Information', 'Mensagem com delay de 2000ms', 'success');
-    });
+    await this.delay(2000);
+    swal('Information', 'Mensagem com delay de 2000ms', 'success');
   }
 
   private delay(ms: number): Promise<boolean> {
