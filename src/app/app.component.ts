@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sample-delay';
+
+  async btnOnClick() {
+    console.log('Por favor aguarde 3s.');
+    await this.delay(2000).then(() => {
+      swal('Information', 'Mensagem com delay de 2000ms', 'success');
+    });
+  }
+
+  private delay(ms: number): Promise<boolean> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(true);
+      }, ms);
+    });
+  }
 }
